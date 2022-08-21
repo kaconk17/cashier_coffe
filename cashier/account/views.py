@@ -4,6 +4,7 @@ from django.http.response import HttpResponse
 from django.core import serializers
 from django.http import JsonResponse
 from django.core.serializers.json import DjangoJSONEncoder
+from django.contrib.auth.models import Group
 import json
 
 
@@ -16,6 +17,17 @@ def users(request):
 
 def groups(request):
     return render(request, 'group.html')
+
+
+def creategroup(request):
+    nama = request.POST.get("groupname", None)
+    group = Group(name=nama)
+    hasil = {
+        "success": True,
+        "message": "Group Created !"
+    }
+
+    return JsonResponse(hasil, safe=False)
 
 
 def get_alluser(request):
