@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.contrib.auth import get_user_model
+from django.contrib.auth import get_user_model, authenticate, login
 from django.http.response import HttpResponse
 from django.core import serializers
 from django.http import JsonResponse
@@ -28,6 +28,29 @@ def creategroup(request):
     }
 
     return JsonResponse(hasil, safe=False)
+
+
+def user_login(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        passw = request.POST['password']
+
+        user = authenticate(username=username, password=passw)
+
+        if user is not None:
+            login(request, user)
+            hasil = {
+                "success": True,
+                "message": "login success"
+            }
+            return JsonResponse(hasil, safe=False)
+            
+        else:
+            hasil = {
+                "success": False,
+                "message": "login failed"
+            }
+            return JsonResponse(hasil, safe=False)
 
 
 def get_alluser(request):
