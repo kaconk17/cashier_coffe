@@ -97,7 +97,7 @@
                 e.preventDefault();
                 var datas = $(this).serialize();
                 $.ajax({
-                    url:'/auth/login',
+                    url:'/auth/post-login',
                     type: 'POST',
                     dataType: 'json',
                     data: datas,

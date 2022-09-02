@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth import get_user_model, authenticate, login
 from django.http.response import HttpResponse
 from django.core import serializers
@@ -28,6 +28,12 @@ def creategroup(request):
     }
 
     return JsonResponse(hasil, safe=False)
+
+
+def login_view(request):
+    if request.user.is_authenticated:
+        return redirect("dashboard")
+    return render(request, 'registration/login.html')
 
 
 def user_login(request):
