@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import get_user_model, authenticate, login
+from django.contrib.auth import get_user_model, authenticate, login, logout
 from django.http.response import HttpResponse
 from django.core import serializers
 from django.http import JsonResponse
@@ -50,7 +50,6 @@ def user_login(request):
                 "message": "login success"
             }
             return JsonResponse(hasil, safe=False)
-            
         else:
             hasil = {
                 "success": False,
@@ -75,3 +74,8 @@ def get_alluser(request):
     }
 
     return JsonResponse(hasil, safe=False)
+
+
+def user_logout(request):
+    logout(request)
+    return redirect("login")
