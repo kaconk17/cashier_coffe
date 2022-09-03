@@ -1,0 +1,46 @@
+{
+  "name": "cashier_coffe",
+  "version": "1.0.0",
+  "description": "cashier system for coffee shop",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npm run development",
+    "development": "webpack --mode development --watch",
+    "watch": "mix watch",
+    "watch-poll": "mix watch -- --watch-options-poll=1000",
+    "hot": "mix watch --hot",
+    "prod": "npm run production",
+    "production": "mix --production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kaconk17/cashier_coffe.git"
+  },
+  "keywords": [
+    "django"
+  ],
+  "author": "kaconk",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kaconk17/cashier_coffe/issues"
+  },
+  "homepage": "https://github.com/kaconk17/cashier_coffe#readme",
+  "dependencies": {
+    "css-loader": "^6.7.1",
+    "datatables.net-buttons": "^2.2.3",
+    "file-loader": "^6.2.0",
+    "moment": "^2.29.3"
+  },
+  "devDependencies": {
+    "datatables.net-bs4": "^1.12.1",
+    "datatables.net-buttons-bs4": "^2.2.3",
+    "imports-loader": "^4.0.0",
+    "jquery": "^3.6.0",
+    "lodash": "^4.17.21",
+    "resolve-url-loader": "^5.0.0",
+    "sass": "^1.53.0",
+    "sass-loader": "^12.6.0",
+    "webpack": "^5.73.0",
+    "webpack-cli": "^4.10.0"
+  }
+}
